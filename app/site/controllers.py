@@ -18,4 +18,6 @@ def index():
         db.session.commit()
         flash('form submitted')
         return redirect(url_for('site.index'))
+    if form.errors:
+        flash(form.errors)
     return render_template("site/index.html", form=form)

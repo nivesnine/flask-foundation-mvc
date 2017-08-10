@@ -1,5 +1,31 @@
+# Statement for enabling the development environment
 DEBUG = False
+
+# Define the application directory
+import os
+BASE_DIR = os.path.abspath(os.path.dirname(__file__))  
+
+# Define the database - we are working with
+# SQLite for this example
+SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(BASE_DIR, 'app.db')
+DATABASE_CONNECT_OPTIONS = {}
+
+#import pymysql
+#SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://<user>:<pass>@<host>/<db>'
+#DATABASE_CONNECT_OPTIONS = {}
+
+# Application threads. A common general assumption is
+# using 2 per available processor cores - to handle
+# incoming requests using one and performing background
+# operations using the other.
 THREADS_PER_PAGE = 2
+
+# Enable protection agains *Cross-site Request Forgery (CSRF)*
 CSRF_ENABLED     = True
-CSRF_SESSION_KEY = "djfos9j293jr23fjw9jpfp93p9"
-SECRET_KEY = "h39f8j8sjf9j39fup3p9j93"
+
+# Use a secure, unique and absolutely secret key for
+# signing the data. 
+CSRF_SESSION_KEY = "<secret>"
+
+# Secret key for signing cookies
+SECRET_KEY = "<secret>"

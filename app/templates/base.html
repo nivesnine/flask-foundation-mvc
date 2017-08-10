@@ -9,8 +9,8 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.1/css/foundation.min.css" />
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.1/css/foundation.min.css" />
 
     {% block style %}{% endblock %}
 
@@ -27,7 +27,7 @@
 	{% with messages = get_flashed_messages() %}
           {% if messages %}
             {% for message in messages %}
-		<div class="success callout" data-closable="slide-out-right">
+		<div class="success callout" data-closable>
 		  <p>{{ message }}</p>
 		  <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
 		    <span aria-hidden="true">&times;</span>
