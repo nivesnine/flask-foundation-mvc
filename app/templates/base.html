@@ -1,0 +1,55 @@
+{% import 'layout.html' as layout with context -%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block head %}
+    <title>{% block title %}{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.1/css/foundation.min.css" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    {% block style %}{% endblock %}
+
+    {% endblock %}
+</head>
+<body>
+ <div class="off-canvas-wrapper">
+  <div class="off-canvas position-left" id="offCanvas" data-off-canvas>
+    {{ layout.mobile_menu() }}
+  </div>
+  <div class="off-canvas-content" data-off-canvas-content>
+    {{ layout.menu() }}
+
+	{% with messages = get_flashed_messages() %}
+          {% if messages %}
+            {% for message in messages %}
+		<div class="success callout" data-closable="slide-out-right">
+		  <p>{{ message }}</p>
+		  <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+		    <span aria-hidden="true">&times;</span>
+		  </button>
+		</div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+
+    {% block content %}{% endblock %}
+
+    {{ layout.footer() }}
+  </div>
+ </div>
+    <script
+	  src="https://code.jquery.com/jquery-3.2.1.min.js"
+	  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+	  crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.1/js/foundation.min.js"></script>
+    <script> $(function(){ $(document).foundation(); }); </script>
+    {% block script %}    
+    {% endblock %}
+</body>
+</html>
+

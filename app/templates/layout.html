@@ -1,0 +1,30 @@
+{% macro menu() -%}
+    <div class="top-bar">
+      <div class="top-bar-left">
+        <button class="hide-for-large menu-icon" type="button" data-open="offCanvas"></button>
+        <span class="hide-for-large title-bar-title">APP_NAME</span>
+        <ul class="menu show-for-large">
+          <span class="menu-text">APP_NAME</span>
+          <li><a href="{{ url_for('site.index') }}">Home</a></li>
+        </ul>
+      </div>
+    </div>
+{%- endmacro %}
+
+{% macro mobile_menu() -%}
+
+    <button class="close-button" aria-label="Close menu" type="button" data-close>
+      <span aria-hidden="true">&times;</span>
+    </button>
+
+    <ul class="vertical menu">
+          <li><a href="{{ url_for('site.index') }}">Home</a></li>
+    </ul>
+
+{%- endmacro %}
+
+{% macro footer() -%}
+    <div class="row column">
+	<p class='text-center'><i class='fa fa-copyright'></i> {{ now.year }}</p>  
+    </div>
+{%- endmacro %}
