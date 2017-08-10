@@ -11,12 +11,12 @@
 <form method='POST'>
 <div class='row'>
 {% for f in form %}
-  <div class='small-6 columns'>
+  <div class='small-12 large-6 columns'>
     {{ f.label }}
     {{ f }}
 </div>
 {% endfor %}
-<div class='small-2 small-centered columns'>
+<div class='small-12 large-2 small-centered columns'>
 <input type='submit' class='primary button expanded' value='submit'>
 </div>
 </div>
